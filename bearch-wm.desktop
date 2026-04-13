@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Bearch-WM
+Comment=BerkeOS Wayland Compositor (Hyprland)
+Exec=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user start Hyprland
+Type=Application
+Keywords=wm;wayland;compositor;hyprland;
+X-LightDM-XdcCommand=/usr/bin/hyprland
+X-GNOME-Autostart-Enabled=true
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
