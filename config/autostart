@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+# Bearch-WM Autostart Script
+
+# Set wallpaper
+~/.config/hypr/scripts/set wallpaper &
+
+# Start waybar
+waybar &
+
+# Start compositor effects
+picom --config ~/.config/hypr/picom.conf &
+
+# Start notification daemon
+dunst &
+
+# Start network applet
+nm-applet --indicator &
+
+# Start bluetooth applet
+blueman-applet &
+
+# Start volume applet
+volumeicon &
+
+# Start clipboard manager
+clipman daemon &
+
+# Start screensaver blocker
+xss-lock --transfer-sleep-lock &
+
+# Start screen locker
+xautolock -detectsleep -time 10 -locker 'swaylock -f' &
+
+# Enable screen locking on suspend
+xset dpms 0 0 600 &
+
+# Export XDG variables
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=bearch-wm
+
+# Set cursor size
+gsettings set org.gnome.desktop.interface cursor-size 24
+
+# Set GTK theme
+gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+
+# Set icon theme
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita"
+
+# Enable tap-to-click
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+
+# Print startup message
+echo "Bearch-WM started successfully"
