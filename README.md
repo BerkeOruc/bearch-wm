@@ -1,94 +1,60 @@
-# Bearch-WM
+# BearchWM - Caelestia Fork for Bearch Linux
 
-BerkeOS Wayland Compositor based on Hyprland.
+BearchWM is a fork of Caelestia customized for Bearch Linux, an Arch-based distribution for developers.
 
-## Features
+## Description
 
-- Wayland compositor with Hyprland
-- Beautiful blur and transparency effects
-- Custom keybindings for workflow efficiency
-- Floating window support for utilities
-- Workspace-based window management
+This is the main repo of the BearchWM dots and contains user configs for apps. Based on Caelestia with Bearch Linux customizations.
 
 ## Installation
 
-### Prerequisites
+Simply clone this repo and run the install script (you need [`fish`](https://github.com/fish-shell/fish-shell) installed).
 
-```bash
-pacman -S hyprland waybar wofi picom dunst network-manager-applet blueman volumeicon clipman xss-lock xautolock brightnessctl grim playerctl wpctl
+```sh
+git clone https://github.com/BerkeOruc/bearch-wm.git ~/.local/share/bearch-wm
+~/.local/share/bearch-wm/install.fish
 ```
 
-### Setup
+### Manual Installation
 
-1. Copy the configuration files:
+Dependencies:
+- hyprland
+- xdg-desktop-portal-hyprland
+- xdg-desktop-portal-gtk
+- hyprpicker
+- wl-clipclip
+- cliphist
+- inotify-tools
+- wireplumber
+- trash-cli
+- foot
+- fish
+- fastfetch
+- starship
+- btop
+- jq
+- eza
 
-```bash
-mkdir -p ~/.config/hypr
-cp config/hyprland.conf ~/.config/hypr/
-cp config/autostart ~/.config/hypr/
-cp config/keybindings.conf ~/.config/hypr/
-chmod +x ~/.config/hypr/autostart
-```
+Then copy or symlink the `hypr`, `foot`, `fish`, `fastfetch`, `uwsm` and `btop` folders to `$XDG_CONFIG_HOME` (usually `~/.config`).
 
-2. Install the desktop entry:
+## Bearch Tools
 
-```bash
-cp bearch-wm.desktop ~/.local/share/xsessions/
-```
+This repo includes configurations for Bearch Linux tools:
 
-3. Configure your shell (see besrh-shell):
+- **bearch-install** - TUI Installer
+- **bearch-aur** - AUR Client (BEAUR)
+- **besrh-shell** - Fish Shell Extensions
+- **berke-wifi** - WiFi Manager (coming soon)
+- **berke-fetch** - System Info Tool (coming soon)
 
-```bash
-cp -r ../besrh-shell/* ~/.config/fish/
-```
+## Keybinds
 
-## Configuration
-
-### Keybindings
-
-Keybindings are defined in `config/keybindings.conf`.
-
-| Key | Action |
-|-----|--------|
-| Super + Enter | Open terminal |
-| Super + D | App launcher |
-| Super + Q | Close window |
-| Super + M | Exit session |
-| Super + 1-0 | Switch workspace |
-| Super + Shift + 1-0 | Move window to workspace |
-| Super + S | Toggle scratchpad |
-| Super + L | Lock screen |
-| Print | Screenshot |
-| Super + Shift + R | Reload config |
-
-### Window Rules
-
-Floating windows:
-- pavucontrol
-- nm-connection-editor
-- blueman-manager
-
-## Autostart
-
-The autostart script launches:
-- Waybar (status bar)
-- Picom (compositor)
-- Dunst (notifications)
-- System applets (network, bluetooth, volume)
-- Clipman (clipboard)
-- Screen locker
-
-## Troubleshooting
-
-### No wallpaper
-Install a wallpaper setter or adjust autostart script.
-
-### No transparency
-Ensure picom is running and check its configuration.
-
-### Keybindings not working
-Check Hyprland logs: `journalctl -xe -u hyprland`
+- `Super` - open launcher
+- `Super` + `#` - switch to workspace `#`
+- `Super` + `T` - open terminal (foot)
+- `Super` + `W` - open browser
+- `Super` + `C` - open IDE
 
 ## License
 
-MIT
+GPL-3.0
